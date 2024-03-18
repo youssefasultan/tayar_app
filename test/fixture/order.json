@@ -1,0 +1,11 @@
+{
+    "orderNo": "",
+    "customerName": "",
+    "customerAddress": "",
+    "customerPhoneNo": "",
+    "totalAmount": 0.0,
+    "status": "I",
+    "paymentType": "Cash",
+    "note": "",
+    "items": []
+}

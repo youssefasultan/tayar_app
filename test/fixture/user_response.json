@@ -1,0 +1,20 @@
+{
+    "driver": [
+        {
+            "driverID": 0,
+            "password": "827ccb0eea8a706c4c34a16891f84e7b",
+            "fullName": "",
+            "userEmail": "",
+            "userActive": true,
+            "isInitial": true,
+            "locked": false,
+            "userName": "",
+            "vehicle_no": "",
+            "phoneNo": "0",
+            "org_ID": 0,
+            "national_ID": null
+        }
+    ],
+    "message": null,
+    "rCode": null
+}

@@ -1,0 +1,26 @@
+import 'package:get_it/get_it.dart';
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tayar_app/src/authentication/data/datasources/local/auth_local_data_source.dart';
+import 'package:tayar_app/src/authentication/data/datasources/remote/auth_remote_data_source.dart';
+import 'package:tayar_app/src/authentication/data/repos/auth_repo_impl.dart';
+import 'package:tayar_app/src/authentication/domain/repos/auth_repo.dart';
+import 'package:tayar_app/src/authentication/domain/usecases/create_password.dart';
+import 'package:tayar_app/src/authentication/domain/usecases/forgot_password.dart';
+import 'package:tayar_app/src/authentication/domain/usecases/logout.dart';
+import 'package:tayar_app/src/authentication/domain/usecases/save_user.dart';
+import 'package:tayar_app/src/authentication/domain/usecases/sign_in.dart';
+import 'package:tayar_app/src/authentication/presntation/bloc/auth_bloc.dart';
+import 'package:tayar_app/src/orders/data/datasources/remote/order_remote_data_source.dart';
+import 'package:tayar_app/src/orders/data/repos/order_repo_impl.dart';
+import 'package:tayar_app/src/orders/domain/repos/orders_repo.dart';
+import 'package:tayar_app/src/orders/domain/usecases/get_orders.dart';
+import 'package:tayar_app/src/orders/domain/usecases/update_order_status.dart';
+import 'package:tayar_app/src/orders/presentation/bloc/order_bloc.dart';
+import 'package:tayar_app/src/profile/data/datasources/remote/report_remote_data_source.dart';
+import 'package:tayar_app/src/profile/data/repos/report_repo_impl.dart';
+import 'package:tayar_app/src/profile/domian/repos/report_repo.dart';
+import 'package:tayar_app/src/profile/domian/usecases/get_weekly_report.dart';
+import 'package:tayar_app/src/profile/presentation/bloc/report_bloc.dart';
+
+part 'injection_container.main.dart';
