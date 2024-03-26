@@ -1,3 +1,4 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -20,21 +21,45 @@ Route<dynamic> generateRoute(RouteSettings settings) {
           final loggedUser = prefs.getString(loggedUserKey);
 
           if (prefs.getBool(logStatusKey) ?? true) {
-            return BlocProvider(
-              create: (context) => sl<AuthBloc>(),
-              child: const SignInScreen(),
+            return AnimatedSplashScreen(
+              splashTransition: SplashTransition.fadeTransition,
+              duration: 3000,
+              splash: 'assets/images/app_logo.png',
+              splashIconSize: 200,
+              backgroundColor: const Color(0xff191718),
+              nextScreen: BlocProvider(
+                create: (context) => sl<AuthBloc>(),
+                child: const SignInScreen(),
+              ),
             );
           } else if (loggedUser != null) {
             final user = UserModel.fromJson(loggedUser);
 
             context.userProvider.initUser(user);
 
-            return const DashBoardScreen();
+            return AnimatedSplashScreen(
+              splashTransition: SplashTransition.fadeTransition,
+              duration: 3000,
+              splash: 'assets/images/app_logo.png',
+              splashIconSize: 200,
+              backgroundColor: const Color(0xff191718),
+              nextScreen: BlocProvider(
+                create: (context) => sl<AuthBloc>(),
+                child: const DashBoardScreen(),
+              ),
+            );
           }
 
-          return BlocProvider(
-            create: (context) => sl<AuthBloc>(),
-            child: const SignInScreen(),
+          return AnimatedSplashScreen(
+            splashTransition: SplashTransition.fadeTransition,
+            duration: 3000,
+            splash: 'assets/images/app_logo.png',
+            splashIconSize: 200,
+            backgroundColor: const Color(0xff191718),
+            nextScreen: BlocProvider(
+              create: (context) => sl<AuthBloc>(),
+              child: const SignInScreen(),
+            ),
           );
         },
         settings: settings,

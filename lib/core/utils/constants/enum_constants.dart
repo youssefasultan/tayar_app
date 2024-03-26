@@ -12,6 +12,7 @@ enum OrderStatus {
     kBlue,
     Ionicons.archive,
     AppLocale.neW,
+    'assets/images/new.png',
   ),
   INPROCESS(
     2,
@@ -19,6 +20,7 @@ enum OrderStatus {
     kOrange,
     Ionicons.walk,
     AppLocale.inProcess,
+    'assets/images/delivered.png',
   ),
   DELIVERED(
     3,
@@ -26,6 +28,7 @@ enum OrderStatus {
     Colors.green,
     Ionicons.checkmark_done,
     AppLocale.delivered,
+    'assets/images/delivered.png',
   ),
   CANCELLED(
     4,
@@ -33,15 +36,24 @@ enum OrderStatus {
     Colors.red,
     Icons.cancel,
     AppLocale.cancelled,
+    'assets/images/canceled.png',
   );
 
-  const OrderStatus(this.id, this.code, this.statusColor, this.icon, this.name);
+  const OrderStatus(
+    this.id,
+    this.code,
+    this.statusColor,
+    this.icon,
+    this.name,
+    this.image,
+  );
 
   final int id;
   final String code;
   final Color statusColor;
   final IconData icon;
   final String name;
+  final String image;
 
   static List<OrderStatus> getAllStatusesExceptInProcess() {
     return OrderStatus.values

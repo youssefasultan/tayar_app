@@ -28,7 +28,7 @@ class OrderDetailAppBar extends StatelessWidget implements PreferredSizeWidget {
         '${AppLocale.orderNo.getString(context)} ${order.orderId}',
         style: TextStyle(
           fontSize: 20.sp,
-          color: kBlue,
+          color: kBlack,
           fontWeight: FontWeight.w600,
         ),
         textAlign: TextAlign.center,
@@ -124,7 +124,7 @@ class OrderDetailAppBar extends StatelessWidget implements PreferredSizeWidget {
           UpdateOrderEvent(
             kOrgId,
             order.orderId,
-            OrderStatus.DELIVERED.code,
+            OrderStatus.CANCELLED.code,
             result!['reasonId'] as int,
             context.mounted ? context.currentUser!.driverId.toString() : '',
             result['text'] as String,

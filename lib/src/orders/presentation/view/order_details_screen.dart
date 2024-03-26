@@ -52,13 +52,13 @@ class OrderDetailsScreen extends StatelessWidget {
                         EdgeInsets.symmetric(vertical: 10.h, horizontal: 5.w),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20.r),
-                      color: kLightBlue,
+                      color: kBlack.withOpacity(0.7),
                     ),
                     child: ListTile(
                       leading: Text(
                         '${item.quantity} X',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: kOrange,
                           fontSize: 16.sp,
                           fontWeight: FontWeight.bold,
                         ),
@@ -66,7 +66,7 @@ class OrderDetailsScreen extends StatelessWidget {
                       title: Text(
                         item.itemName,
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                           fontSize: 16.sp,
                           fontWeight: FontWeight.bold,
                         ),
@@ -74,7 +74,7 @@ class OrderDetailsScreen extends StatelessWidget {
                       trailing: Text(
                         item.uom,
                         style: TextStyle(
-                          color: Colors.white,
+                          color: kOrange,
                           fontSize: 16.sp,
                           fontWeight: FontWeight.bold,
                         ),

@@ -23,7 +23,7 @@ class OrderDetailsHeader extends StatelessWidget {
       child: BackgroundContainer(
         width: width,
         height: height * 0.3,
-        color: Colors.white,
+        color: kBlack,
         imgPath: bannerImgPath,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 10.w),
@@ -35,7 +35,7 @@ class OrderDetailsHeader extends StatelessWidget {
                 children: [
                   Icon(
                     Ionicons.person_circle,
-                    color: kBlue,
+                    color: Colors.white,
                     size: 30.w,
                   ),
                   SizedBox(
@@ -46,7 +46,7 @@ class OrderDetailsHeader extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 12.sp,
                       fontWeight: FontWeight.bold,
-                      color: kBlue,
+                      color: Colors.white,
                     ),
                   ),
                 ],
@@ -55,7 +55,7 @@ class OrderDetailsHeader extends StatelessWidget {
                 children: [
                   Icon(
                     Ionicons.home,
-                    color: kBlue,
+                    color: Colors.white,
                     size: 30.w,
                   ),
                   SizedBox(
@@ -67,7 +67,7 @@ class OrderDetailsHeader extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 12.sp,
                         fontWeight: FontWeight.bold,
-                        color: kBlue,
+                        color: Colors.white,
                         overflow: TextOverflow.clip,
                       ),
                     ),
@@ -78,7 +78,7 @@ class OrderDetailsHeader extends StatelessWidget {
                 children: [
                   Icon(
                     Ionicons.call,
-                    color: kBlue,
+                    color: Colors.white,
                     size: 30.w,
                   ),
                   SizedBox(
@@ -92,7 +92,7 @@ class OrderDetailsHeader extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 12.sp,
                         fontWeight: FontWeight.bold,
-                        color: kBlue,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -107,7 +107,7 @@ class OrderDetailsHeader extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16.sp,
                       fontWeight: FontWeight.bold,
-                      color: kBlue,
+                      color: Colors.white,
                     ),
                   ),
                   Text(
@@ -116,14 +116,14 @@ class OrderDetailsHeader extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.bold,
-                      color: kBlue,
+                      color: Colors.white,
                     ),
                   ),
                 ],
               ),
               Divider(
                 thickness: 2.h,
-                color: kLightBlue,
+                color: Colors.white,
                 indent: 10.w,
                 endIndent: 10.w,
               ),
@@ -134,7 +134,7 @@ class OrderDetailsHeader extends StatelessWidget {
                     children: [
                       Icon(
                         Ionicons.cash,
-                        color: kBlue,
+                        color: Colors.white,
                         size: 30.w,
                       ),
                       SizedBox(
@@ -146,7 +146,7 @@ class OrderDetailsHeader extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.bold,
-                          color: kBlue,
+                          color: Colors.white,
                         ),
                       ),
                     ],

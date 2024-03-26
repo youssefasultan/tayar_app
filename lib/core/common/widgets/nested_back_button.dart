@@ -26,7 +26,7 @@ class NestedbackButton extends StatelessWidget {
         },
         icon: const Icon(
           Icons.arrow_back,
-          color: kBlue,
+          color: kBlack,
         ),
       ),
     );

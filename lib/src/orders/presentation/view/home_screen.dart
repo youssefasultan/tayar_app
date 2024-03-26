@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:tayar_app/core/common/widgets/background_containder.dart';
@@ -41,13 +42,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: const HomeAppBar(),
       backgroundColor: Colors.white,
-      extendBodyBehindAppBar: true,
       body: BlocConsumer<OrderBloc, OrderState>(
         builder: (context, state) => LiquidPullToRefresh(
           key: _refreshIndicatorKey,
           showChildOpacityTransition: false,
-          backgroundColor: kBlue,
-          color: kBlue,
+          borderWidth: 10.h,
+          color: kOrange,
+          backgroundColor: kBlack,
           onRefresh: () async {
             context.read<OrderBloc>().add(
                   GetOrdersEvent(
@@ -63,11 +64,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 BackgroundContainer(
                   width: width,
                   height: height * 0.3,
-                  color: Colors.white,
+                  color: kBlack,
                   imgPath: 'assets/images/banner_img.jpg',
                   child: const Center(
                     child: SpinKitFadingCube(
-                      color: kBlue,
+                      color: kOrange,
                     ),
                   ),
                 )

@@ -53,7 +53,7 @@ class OrderStatusGridView extends StatelessWidget {
                 status.name.getString(context),
                 style: TextStyle(
                   fontSize: 12.sp,
-                  color: kBlue,
+                  color: kBlack,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -63,16 +63,16 @@ class OrderStatusGridView extends StatelessWidget {
                     ? SizedBox(
                         width: 12.h,
                         height: 12.w,
-                        child: const SpinKitFadingCube(
-                          color: kBlue,
-                          size: 10,
+                        child: SpinKitFadingCube(
+                          color: kOrange,
+                          size: 5.h,
                         ),
                       )
                     : Text(
                         '${orderData.getNoOfOrdersPerStatus(status)}',
                         style: TextStyle(
                           fontSize: 12.sp,
-                          color: kBlue,
+                          color: kBlack,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -82,21 +82,19 @@ class OrderStatusGridView extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.r),
                 gradient: LinearGradient(
-                  colors: [
-                    kLightBlue,
-                    status.statusColor,
-                  ],
+                  colors: getStatusGadient(status),
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   stops: const [0, 1],
                 ),
               ),
               child: Center(
-                child: Icon(
-                  status.icon,
-                  size: 50.h,
-                  color: Colors.white,
-                ),
+                child: Image.asset(status.image),
+                //  Icon(
+                //   status.icon,
+                //   size: 50.h,
+                //   color: kBlack.withOpacity(0.8),
+                // ),
               ),
             ),
           ),

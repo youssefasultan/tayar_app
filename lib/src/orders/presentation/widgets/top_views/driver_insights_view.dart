@@ -8,10 +8,10 @@ import 'package:simple_progress_indicators/simple_progress_indicators.dart';
 import 'package:tayar_app/core/common/app/localization/app_locale.dart';
 import 'package:tayar_app/core/common/app/providers/orders_provider.dart';
 import 'package:tayar_app/core/common/widgets/background_containder.dart';
-import 'package:tayar_app/core/common/widgets/outlined_text.dart';
 import 'package:tayar_app/core/extentions/context_extention.dart';
 import 'package:tayar_app/core/services/call_service.dart';
 import 'package:tayar_app/core/services/injection_container.dart';
+import 'package:tayar_app/core/utils/constants/enum_constants.dart';
 import 'package:tayar_app/core/utils/constants/view_constants.dart';
 import 'package:tayar_app/src/orders/data/models/order_model.dart';
 import 'package:tayar_app/src/orders/presentation/bloc/order_bloc.dart';
@@ -31,7 +31,7 @@ class _DriverInsightsViewState extends State<DriverInsightsView> {
   @override
   Widget build(BuildContext context) {
     final orderData = context.orderProvider;
-    final inprocessOrder = orderData.inProcessOrder;
+    final inprocessOrders = orderData.inProcessOrder;
     // for test purposes
     // final inprocessOrder = OrderModel.empty().copyWith(
     //   orderId: '121212',
@@ -44,8 +44,10 @@ class _DriverInsightsViewState extends State<DriverInsightsView> {
       cashInsight(context, orderData),
     ];
 
-    if (inprocessOrder != null) {
-      carouselItems.insert(0, inprocessInsight(context, inprocessOrder));
+    if (inprocessOrders != null) {
+      for (final order in inprocessOrders) {
+        carouselItems.add(inprocessInsight(context, order));
+      }
     }
 
     return Padding(
@@ -53,7 +55,7 @@ class _DriverInsightsViewState extends State<DriverInsightsView> {
       child: BackgroundContainer(
         width: width,
         height: height * 0.3,
-        color: Colors.white,
+        color: kBlack,
         imgPath: bannerImgPath,
         child: Column(
           children: [
@@ -86,7 +88,7 @@ class _DriverInsightsViewState extends State<DriverInsightsView> {
                     ),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: kBlue.withOpacity(
+                      color: Colors.white.withOpacity(
                         _current == carouselItems.indexOf(entry) ? 0.9 : 0.4,
                       ),
                     ),
@@ -113,13 +115,13 @@ class _DriverInsightsViewState extends State<DriverInsightsView> {
         padding: EdgeInsets.all(5.w),
         child: Column(
           children: [
-            OutLinedText(
-              label: AppLocale.inProcess.getString(context),
-              labelSize: 30,
-              fontWeight: FontWeight.bold,
-              strokeWidth: 3,
-              strokeColor: Colors.white,
-              textColor: kOrange,
+            Text(
+              AppLocale.inProcess.getString(context),
+              style: TextStyle(
+                fontSize: 26.sp,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 8.h),
@@ -130,7 +132,7 @@ class _DriverInsightsViewState extends State<DriverInsightsView> {
                     children: [
                       Icon(
                         Ionicons.cart,
-                        color: kBlue,
+                        color: Colors.white,
                         size: 30.w,
                       ),
                       SizedBox(
@@ -140,7 +142,7 @@ class _DriverInsightsViewState extends State<DriverInsightsView> {
                         order.orderId,
                         style: TextStyle(
                           fontSize: 12.sp,
-                          color: kBlue,
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -150,7 +152,7 @@ class _DriverInsightsViewState extends State<DriverInsightsView> {
                     children: [
                       Icon(
                         Ionicons.person_circle,
-                        color: kBlue,
+                        color: Colors.white,
                         size: 30.w,
                       ),
                       SizedBox(
@@ -159,7 +161,7 @@ class _DriverInsightsViewState extends State<DriverInsightsView> {
                       Text(
                         order.customerName,
                         style: TextStyle(
-                          color: kBlue,
+                          color: Colors.white,
                           fontSize: 14.sp,
                           fontWeight: FontWeight.bold,
                         ),
@@ -170,7 +172,7 @@ class _DriverInsightsViewState extends State<DriverInsightsView> {
                     children: [
                       Icon(
                         Ionicons.home,
-                        color: kBlue,
+                        color: Colors.white,
                         size: 30.w,
                       ),
                       SizedBox(
@@ -181,7 +183,7 @@ class _DriverInsightsViewState extends State<DriverInsightsView> {
                           order.customerAddress,
                           style: TextStyle(
                             overflow: TextOverflow.clip,
-                            color: kBlue,
+                            color: Colors.white,
                             fontSize: 12.sp,
                             fontWeight: FontWeight.bold,
                           ),
@@ -193,7 +195,7 @@ class _DriverInsightsViewState extends State<DriverInsightsView> {
                     children: [
                       Icon(
                         Ionicons.call,
-                        color: kBlue,
+                        color: Colors.white,
                         size: 30.w,
                       ),
                       SizedBox(
@@ -205,7 +207,7 @@ class _DriverInsightsViewState extends State<DriverInsightsView> {
                         child: Text(
                           order.customerPhoneNo,
                           style: TextStyle(
-                            color: kBlue,
+                            color: Colors.white,
                             fontSize: 14.sp,
                             fontWeight: FontWeight.bold,
                           ),
@@ -237,7 +239,7 @@ class _DriverInsightsViewState extends State<DriverInsightsView> {
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20.sp,
-                  color: kBlue,
+                  color: Colors.white,
                 ),
               ),
               Text(
@@ -245,7 +247,7 @@ class _DriverInsightsViewState extends State<DriverInsightsView> {
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 16.sp,
-                  color: kBlue,
+                  color: Colors.white,
                 ),
               ),
             ],
@@ -256,7 +258,7 @@ class _DriverInsightsViewState extends State<DriverInsightsView> {
                 ? 0
                 : orderData.getdeliveredCashOrders() /
                     orderData.getNoOfCashOrders(),
-            color: kBlue,
+            gradient: kLinerGradient(OrderStatus.DELIVERED),
             backgroundColor: Colors.white,
           ),
           Row(
@@ -267,7 +269,7 @@ class _DriverInsightsViewState extends State<DriverInsightsView> {
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20.sp,
-                  color: kBlue,
+                  color: Colors.white,
                 ),
               ),
               Text(
@@ -275,7 +277,7 @@ class _DriverInsightsViewState extends State<DriverInsightsView> {
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 16.sp,
-                  color: kBlue,
+                  color: Colors.white,
                 ),
               ),
             ],
@@ -285,7 +287,7 @@ class _DriverInsightsViewState extends State<DriverInsightsView> {
             value: orderData.getCollectedCash() == 0.0
                 ? 0
                 : orderData.getCollectedCash() / orderData.getExpectedCash(),
-            color: kBlue,
+            gradient: kLinerGradient(OrderStatus.DELIVERED),
             backgroundColor: Colors.white,
           ),
         ],

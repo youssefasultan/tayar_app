@@ -86,12 +86,12 @@ class _DeliveryChartState extends State<DeliveryChart> {
                   },
                   icon: const Icon(
                     Ionicons.calendar,
-                    color: kLightBlue,
+                    color: kBlack,
                   ),
                   label: Text(
                     AppLocale.choosetDate.getString(context),
                     style: TextStyle(
-                      color: kLightBlue,
+                      color: kBlack,
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w600,
                     ),
@@ -120,7 +120,7 @@ class _DeliveryChartState extends State<DeliveryChart> {
                     return state is ReportLoading
                         ? const Center(
                             child: SpinKitFadingCube(
-                              color: kBlue,
+                              color: kOrange,
                             ),
                           )
                         : state is ReportError
@@ -140,19 +140,19 @@ class _DeliveryChartState extends State<DeliveryChart> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Indicator(
-                                        color: kBeige,
+                                        color: kBlack,
                                         text: AppLocale.cancelled
                                             .getString(context),
                                         isSquare: false,
-                                        textColor: kBeige,
+                                        textColor: kBlack,
                                       ),
                                       SizedBox(width: 10.w),
                                       Indicator(
-                                        color: kOrange,
+                                        color: kBeige,
                                         text: AppLocale.delivered
                                             .getString(context),
                                         isSquare: false,
-                                        textColor: kOrange,
+                                        textColor: kBeige,
                                       ),
                                     ],
                                   ),
@@ -207,7 +207,7 @@ class _DeliveryChartState extends State<DeliveryChart> {
 
   Widget leftTitles(double value, TitleMeta meta) {
     const style = TextStyle(
-      color: kBlue,
+      color: kBeige,
       fontWeight: FontWeight.bold,
       fontSize: 14,
     );
@@ -234,7 +234,7 @@ class _DeliveryChartState extends State<DeliveryChart> {
     final Widget text = Text(
       titles[value.toInt()],
       style: TextStyle(
-        color: kBlue,
+        color: kBlack,
         fontWeight: FontWeight.bold,
         fontSize: 10.sp,
       ),

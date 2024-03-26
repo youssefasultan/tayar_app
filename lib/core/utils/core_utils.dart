@@ -61,10 +61,10 @@ class CoreUtils {
       barrierDismissible: false,
       builder: (context) => StatefulBuilder(
         builder: (context, setState) => AlertDialog(
-          backgroundColor: kBeige,
+          backgroundColor: kBlack.withOpacity(0.4),
           elevation: 3,
           icon: const SpinKitPouringHourGlass(
-            color: kBlue,
+            color: kBlack,
           ),
           content: Text(
             AppLocale.loading.getString(context),
@@ -72,7 +72,7 @@ class CoreUtils {
             style: TextStyle(
               fontSize: 16.sp,
               fontWeight: FontWeight.w600,
-              color: kBlue,
+              color: kBlack,
             ),
           ),
         ),
@@ -99,7 +99,7 @@ class CoreUtils {
           titleTextStyle: TextStyle(
             fontSize: 16.sp,
             fontWeight: FontWeight.w600,
-            color: kBlue,
+            color: kBlack,
           ),
           content: SingleChildScrollView(
             physics: const ClampingScrollPhysics(),
@@ -112,7 +112,7 @@ class CoreUtils {
                     title: Text(
                       reason['reason'] as String,
                     ),
-                    activeColor: kBlue,
+                    activeColor: kBlack,
                     value: reason,
                     groupValue: selectedReason,
                     onChanged: (value) {
@@ -160,6 +160,8 @@ class CoreUtils {
           actions: [
             RoundedButton(
               label: AppLocale.submit.getString(context),
+              labelColor: Colors.white,
+              buttonColor: kBlack,
               onPressed: () {
                 if (selectedReason['id'] == 0 &&
                     tfController.text.trim().isEmpty) {

@@ -20,7 +20,7 @@ class PopupItem extends StatelessWidget {
         Text(
           label,
           style: TextStyle(
-            color: kBlue,
+            color: kBlack,
             fontSize: 16.sp,
             fontWeight: FontWeight.w500,
           ),

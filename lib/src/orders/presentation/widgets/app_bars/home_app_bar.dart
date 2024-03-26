@@ -15,7 +15,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         style: TextStyle(
           fontWeight: FontWeight.w600,
           fontSize: 24.sp,
-          color: kBlue,
+          color: kBlack,
         ),
       ),
       backgroundColor: Colors.white,

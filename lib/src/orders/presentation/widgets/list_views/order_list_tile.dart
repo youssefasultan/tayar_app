@@ -30,9 +30,7 @@ class OrderListTile extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.r),
-          // color: kBeige,
-          border: Border.all(color: kBlue, width: 1.w),
-          gradient: kLinerGradient,
+          gradient: kLinerGradient(order.status),
         ),
         child: Row(
           children: [
@@ -47,7 +45,7 @@ class OrderListTile extends StatelessWidget {
                         children: [
                           Icon(
                             Ionicons.cart,
-                            color: kBlue,
+                            color: Colors.white,
                             size: 30.w,
                           ),
                           SizedBox(
@@ -57,7 +55,7 @@ class OrderListTile extends StatelessWidget {
                             order.orderId,
                             style: TextStyle(
                               fontSize: 12.sp,
-                              color: kBlue,
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -66,7 +64,7 @@ class OrderListTile extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: kBlue,
+                            color: Colors.white,
                             width: 2.w,
                           ),
                           borderRadius: BorderRadius.circular(5.r),
@@ -76,7 +74,7 @@ class OrderListTile extends StatelessWidget {
                                 padding: EdgeInsets.all(5.w),
                                 child: Icon(
                                   Ionicons.cash,
-                                  color: kBlue,
+                                  color: Colors.white,
                                   size: 25.w,
                                 ),
                               )
@@ -84,7 +82,7 @@ class OrderListTile extends StatelessWidget {
                                 padding: EdgeInsets.all(5.w),
                                 child: Icon(
                                   Ionicons.card,
-                                  color: kBlue,
+                                  color: Colors.white,
                                   size: 25.w,
                                 ),
                               ),
@@ -96,7 +94,7 @@ class OrderListTile extends StatelessWidget {
                     children: [
                       Icon(
                         Ionicons.person_circle,
-                        color: kBlue,
+                        color: Colors.white,
                         size: 30.w,
                       ),
                       SizedBox(
@@ -106,7 +104,7 @@ class OrderListTile extends StatelessWidget {
                         order.customerName,
                         style: TextStyle(
                           fontSize: 12.sp,
-                          color: kBlue,
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -117,7 +115,7 @@ class OrderListTile extends StatelessWidget {
                     children: [
                       Icon(
                         Ionicons.home,
-                        color: kBlue,
+                        color: Colors.white,
                         size: 30.w,
                       ),
                       SizedBox(
@@ -128,7 +126,7 @@ class OrderListTile extends StatelessWidget {
                           order.customerAddress,
                           style: TextStyle(
                             fontSize: 12.sp,
-                            color: kBlue,
+                            color: Colors.white,
                             fontWeight: FontWeight.bold,
                             overflow: TextOverflow.clip,
                           ),
@@ -141,7 +139,7 @@ class OrderListTile extends StatelessWidget {
                     children: [
                       Icon(
                         Ionicons.call,
-                        color: kBlue,
+                        color: Colors.white,
                         size: 30.w,
                       ),
                       SizedBox(
@@ -155,7 +153,7 @@ class OrderListTile extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.bold,
-                            color: kBlue,
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -178,7 +176,7 @@ class OrderListTile extends StatelessWidget {
               },
               icon: Icon(
                 Ionicons.arrow_back_circle_outline,
-                color: kBlue,
+                color: Colors.white,
                 size: 40.h,
               ),
             ),

@@ -48,9 +48,11 @@ class OrderRemoteDataSourceImpl implements OrderRemoteDataSource {
       );
 
       if (response.statusCode != 200) {
+        final resposneData = jsonDecode(response.body) as DataMap;
+
         throw ServerException(
-          message: response.body,
-          statusCode: response.statusCode,
+          message: resposneData['message'] as String,
+          statusCode: int.parse(resposneData['rCode'] as String),
         );
       }
 

@@ -1,23 +1,27 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localization/flutter_localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:tayar_app/core/common/app/localization/app_locale.dart';
 import 'package:tayar_app/core/utils/constants/view_constants.dart';
 
 class AppTextFeild extends StatelessWidget {
   const AppTextFeild({
     required this.controller,
+    super.key,
+    this.validator,
     this.filled = false,
+    this.filledColor,
     this.obsecure = false,
     this.readOnly = false,
-    this.overrideValidator = false,
-    this.validator,
-    this.filledColor,
     this.suffixIcon,
     this.hintText,
     this.keyboardType,
+    this.overrideValidator = false,
     this.hintTextStyle,
-    super.key,
+    this.formattors,
   });
 
   final String? Function(String?)? validator;
@@ -31,6 +35,7 @@ class AppTextFeild extends StatelessWidget {
   final TextInputType? keyboardType;
   final bool overrideValidator;
   final TextStyle? hintTextStyle;
+  final List<TextInputFormatter>? formattors;
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +52,7 @@ class AppTextFeild extends StatelessWidget {
       onTapOutside: (_) {
         FocusScope.of(context).unfocus();
       },
+      inputFormatters: formattors,
       keyboardType: keyboardType,
       obscureText: obsecure,
       readOnly: readOnly,
@@ -56,11 +62,11 @@ class AppTextFeild extends StatelessWidget {
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(90.r),
-          borderSide: const BorderSide(color: kLightBlue),
+          borderSide: const BorderSide(color: kBlack),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(90.r),
-          borderSide: const BorderSide(color: kLightBlue),
+          borderSide: const BorderSide(color: kBlack),
         ),
         filled: filled,
         fillColor: filledColor,
@@ -82,7 +88,7 @@ class AppTextFeild extends StatelessWidget {
             TextStyle(
               fontSize: 16.sp,
               fontWeight: FontWeight.w400,
-              color: kBlue,
+              color: kBlack,
             ),
       ),
     );

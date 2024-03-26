@@ -13,7 +13,7 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kLightBlue,
+      backgroundColor: kBlack.withOpacity(0.8),
       extendBodyBehindAppBar: true,
       appBar: const ProfileAppBar(),
       body: ListView(

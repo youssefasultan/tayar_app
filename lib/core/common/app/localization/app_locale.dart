@@ -9,6 +9,7 @@ mixin AppLocale {
   static const String signIn = 'signIn';
   static const String createPass = 'createPassword';
   static const String confirmNewPassword = 'confirmNewPass';
+  static const String changePass = 'changePass';
 
   //profile
   static const String profile = 'profile';
@@ -66,6 +67,7 @@ mixin AppLocale {
     password: 'Password',
     forgotPassword: 'Forgot Password?',
     signIn: 'Sign In',
+    changePass: 'Change Password',
     phoneLengthError: 'Phone Number must contain 11 number',
     createPass: 'Create Password',
     confirmNewPassword: 'Confirm Password',
@@ -118,14 +120,15 @@ mixin AppLocale {
     confirmNewPassword: 'ادخل كلمه المرور مره اخري',
     createPassError: 'يجب أن تكون مثل كلمه المرور الجديده',
     noUserCacheError: 'لا يوجد مستخدم',
+    changePass: 'تغير كلمه السر',
     orders: 'طلبات',
     profile: 'الصفحة الشخصية',
     logout: 'خروج',
     vehicleNo: 'رقم العربه',
     neW: 'جديد',
-    inProcess: 'دائر',
+    inProcess: 'قيد التنفيذ',
     delivered: 'تم التوصيل',
-    cancelled: 'ألغيت',
+    cancelled: 'ألغاء',
     collected: 'تم جمع',
     cashOrders: 'الطلبات النقدية',
     orderNo: 'رقم الاوردر',

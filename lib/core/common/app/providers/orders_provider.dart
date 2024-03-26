@@ -4,15 +4,15 @@ import 'package:tayar_app/src/orders/data/models/order_model.dart';
 
 class OrdersProvider extends ChangeNotifier {
   List<OrderModel>? _orderList;
-  OrderModel? _inProcessOrder;
+  List<OrderModel>? _inProcessOrderList;
 
   List<OrderModel>? get orderList => _orderList;
-  OrderModel? get inProcessOrder => _inProcessOrder;
+  List<OrderModel>? get inProcessOrder => _inProcessOrderList;
 
   void init(List<OrderModel>? orderList) {
     if (_orderList != null) _orderList!.clear();
     _orderList = orderList;
-    _inProcessOrder = getInProcessOrder();
+    _inProcessOrderList = getInProcessOrder();
     Future.delayed(Duration.zero, notifyListeners);
   }
 
@@ -80,12 +80,11 @@ class OrdersProvider extends ChangeNotifier {
     }
   }
 
-  OrderModel? getInProcessOrder() {
+  List<OrderModel>? getInProcessOrder() {
     try {
-      return _orderList!.firstWhere(
-        (element) => element.status == OrderStatus.INPROCESS,
-        orElse: () => throw Exception(),
-      );
+      return _orderList!
+          .where((element) => element.status == OrderStatus.INPROCESS)
+          .toList();
     } catch (e) {
       return null;
     }

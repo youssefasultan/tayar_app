@@ -43,7 +43,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home,
-                  color: controller.currentIndex == 0 ? kOrange : kBlue,
+                  color: controller.currentIndex == 0 ? kBeige : kBlack,
                 ),
                 label: 'Orders',
                 backgroundColor: Colors.white,
@@ -51,7 +51,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.person,
-                  color: controller.currentIndex == 1 ? kOrange : kBlue,
+                  color: controller.currentIndex == 1 ? kBeige : kBlack,
                 ),
                 label: 'profile',
                 backgroundColor: Colors.white,

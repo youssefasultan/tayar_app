@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localization/flutter_localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tayar_app/core/common/app/localization/app_locale.dart';
@@ -36,6 +37,9 @@ class _SignInFormState extends State<SignInForm> {
             keyboardType: TextInputType.phone,
             filled: true,
             filledColor: Colors.white,
+            formattors: [
+              LengthLimitingTextInputFormatter(11),
+            ],
             validator: (value) {
               if (value!.length < 11) {
                 return AppLocale.phoneLengthError.getString(context);
@@ -57,7 +61,7 @@ class _SignInFormState extends State<SignInForm> {
               }),
               icon: Icon(
                 obsecurePassword ? Icons.visibility : Icons.visibility_off,
-                color: kBlue,
+                color: kBlack,
               ),
               alignment: Alignment.center,
             ),

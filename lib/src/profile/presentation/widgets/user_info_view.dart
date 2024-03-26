@@ -35,7 +35,7 @@ class UserInfoView extends StatelessWidget {
                   radius: 50.r,
                   child: Icon(
                     Ionicons.person,
-                    color: kBlue,
+                    color: kBlack,
                     size: 50.h,
                   ),
                 ),
@@ -45,14 +45,14 @@ class UserInfoView extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 18.sp,
                     fontWeight: FontWeight.w600,
-                    color: kBlue,
+                    color: kBlack,
                   ),
                 ),
               ],
             ),
           ),
           Divider(
-            color: kLightBlue,
+            color: kBlack,
             thickness: 2.h,
             endIndent: 20.w,
             indent: 20.w,
@@ -66,21 +66,21 @@ class UserInfoView extends StatelessWidget {
                 children: [
                   Icon(
                     Ionicons.car,
-                    color: kBlue,
+                    color: kBeige,
                     size: 40.h,
                   ),
                   Text(
                     AppLocale.vehicleNo.getString(context),
                     style: TextStyle(
                       fontSize: 12.sp,
-                      color: kBlue,
+                      color: kBlack,
                     ),
                   ),
                   Text(
                     user.vehicleNo,
                     style: TextStyle(
                       fontSize: 12.sp,
-                      color: kBlue,
+                      color: kBlack,
                     ),
                   ),
                 ],
@@ -90,21 +90,21 @@ class UserInfoView extends StatelessWidget {
                 children: [
                   Icon(
                     Ionicons.phone_portrait,
-                    color: kBlue,
+                    color: kBeige,
                     size: 40.h,
                   ),
                   Text(
                     AppLocale.telephoneNo.getString(context),
                     style: TextStyle(
                       fontSize: 12.sp,
-                      color: kBlue,
+                      color: kBlack,
                     ),
                   ),
                   Text(
                     user.phoneNo,
                     style: TextStyle(
                       fontSize: 12.sp,
-                      color: kBlue,
+                      color: kBlack,
                     ),
                   ),
                 ],

@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:tayar_app/core/common/app/localization/app_locale.dart';
 import 'package:tayar_app/core/common/widgets/background_containder.dart';
-import 'package:tayar_app/core/common/widgets/outlined_text.dart';
 import 'package:tayar_app/core/common/widgets/rounded_button.dart';
 import 'package:tayar_app/core/extentions/context_extention.dart';
 import 'package:tayar_app/core/services/injection_container.dart';
@@ -47,7 +46,7 @@ class _SignInScreenState extends State<SignInScreen> {
       body: BlocConsumer<AuthBloc, AuthState>(
         builder: (_, state) {
           return BackgroundContainer(
-            color: Colors.white,
+            color: kBlack,
             width: width,
             height: height,
             imgPath: 'assets/images/login_bg.jpg',
@@ -56,54 +55,30 @@ class _SignInScreenState extends State<SignInScreen> {
                 shrinkWrap: true,
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 children: [
-                  OutLinedText(
-                    label: AppLocale.appName.getString(context),
-                    labelSize: 50,
-                    fontWeight: FontWeight.w700,
-                    strokeWidth: 6,
-                    strokeColor: Colors.white,
-                    textColor: kBlue,
+                  Image.asset(
+                    'assets/images/app_logo.png',
+                    fit: BoxFit.fill,
+                    width: 200.w,
+                    height: 300.h,
                   ),
-                  SizedBox(height: 10.h),
-                  OutLinedText(
-                    label: AppLocale.appSlogan.getString(context),
-                    labelSize: 30,
-                    fontWeight: FontWeight.w500,
-                    strokeWidth: 2,
-                    strokeColor: Colors.white,
-                    textColor: kBlue,
-                  ),
-                  SizedBox(height: 10.h),
+                  SizedBox(height: 20.h),
                   SignInForm(
                     teleponeNoController: telephoneNoController,
                     passwordController: passwordController,
                     formKey: formKey,
                   ),
-                  // SizedBox(height: 10.h),
-                  // Align(
-                  //   alignment: Alignment.centerRight,
-                  //   child: TextButton(
-                  //     onPressed: () {
-                  //       // `TODO`(youssef): implement forgetPassword screen
-                  //     },
-                  //     child: Text(
-                  //       AppLocale.forgotPassword.getString(context),
-                  //       style: const TextStyle(
-                  //         color: kBlue,
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
                   SizedBox(height: 30.h),
                   if (state is AuthLoading)
                     const Center(
                       child: SpinKitFadingCube(
-                        color: kBlue,
+                        color: kOrange,
                       ),
                     )
                   else
                     RoundedButton(
                       label: AppLocale.signIn.getString(context),
+                      buttonColor: kBeige,
+                      labelColor: kBlack,
                       onPressed: () {
                         FocusManager.instance.primaryFocus?.unfocus();
                         if (formKey.currentState!.validate()) {

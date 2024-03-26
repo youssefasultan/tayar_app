@@ -37,6 +37,7 @@ class _LangDropDownState extends State<LangDropDown> {
                   style: TextStyle(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -51,30 +52,31 @@ class _LangDropDownState extends State<LangDropDown> {
           });
           localization.translate(value! == 'English' ? 'en' : 'ar');
         },
+        iconStyleData: const IconStyleData(iconEnabledColor: Colors.white),
         buttonStyleData: ButtonStyleData(
-          height: 50,
-          width: 140,
-          padding: const EdgeInsets.only(left: 14, right: 14),
+          height: 50.h,
+          width: 140.w,
+          padding: EdgeInsets.only(left: 14.w, right: 14.w),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(14.r),
             border: Border.all(
-              color: kLightBlue,
+              color: Colors.white,
             ),
-            color: kBeige,
+            color: Colors.transparent,
           ),
           elevation: 2,
         ),
         dropdownStyleData: DropdownStyleData(
-          maxHeight: 200,
-          width: 140,
+          maxHeight: 200.h,
+          width: 140.w,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(14),
-            color: kBeige,
+            borderRadius: BorderRadius.circular(14.r),
+            color: kBlack,
           ),
-          offset: const Offset(0, 50),
+          offset: const Offset(0, 55),
           scrollbarTheme: ScrollbarThemeData(
-            radius: const Radius.circular(40),
-            thickness: MaterialStateProperty.all(6),
+            radius: Radius.circular(40.r),
+            thickness: MaterialStateProperty.all(6.w),
             thumbVisibility: MaterialStateProperty.all(true),
           ),
         ),

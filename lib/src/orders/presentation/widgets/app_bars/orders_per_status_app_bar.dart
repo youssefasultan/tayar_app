@@ -20,7 +20,7 @@ class OrdersPerStatusAppBar extends StatelessWidget
         status,
         style: TextStyle(
           fontSize: 24.sp,
-          color: kBlue,
+          color: kBlack,
           fontWeight: FontWeight.w600,
         ),
       ),

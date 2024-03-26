@@ -94,6 +94,7 @@ class _MainAppState extends State<MainApp> {
             supportedLocales: _localization.supportedLocales,
             localizationsDelegates: _localization.localizationsDelegates,
             debugShowCheckedModeBanner: false,
+            theme: ThemeData(useMaterial3: true),
             locale: _localization.currentLocale,
             onGenerateRoute: generateRoute,
           ),

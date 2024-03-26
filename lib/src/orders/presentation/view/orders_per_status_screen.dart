@@ -22,7 +22,7 @@ class OrdersPerStatusScreen extends StatelessWidget {
       appBar: OrdersPerStatusAppBar(status: status.name.getString(context)),
       body: statusOrderList == null || statusOrderList.isEmpty
           ? BackgroundContainer(
-              color: Colors.white,
+              color: kBlack,
               width: width,
               height: height,
               imgPath: loginImgPath,

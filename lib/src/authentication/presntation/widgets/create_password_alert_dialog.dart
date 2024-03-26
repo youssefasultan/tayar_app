@@ -52,6 +52,8 @@ class _CreatePasswordAlertDialogState extends State<CreatePasswordAlertDialog> {
                   controller: passTFController,
                   hintText: AppLocale.password.getString(context),
                   keyboardType: TextInputType.visiblePassword,
+                  filled: true,
+                  filledColor: Colors.white,
                   obsecure: newPassObsecure,
                   suffixIcon: IconButton(
                     onPressed: () => setState(() {
@@ -59,7 +61,7 @@ class _CreatePasswordAlertDialogState extends State<CreatePasswordAlertDialog> {
                     }),
                     icon: Icon(
                       newPassObsecure ? Icons.visibility : Icons.visibility_off,
-                      color: kBlue,
+                      color: kBlack,
                     ),
                     alignment: Alignment.center,
                   ),
@@ -72,6 +74,8 @@ class _CreatePasswordAlertDialogState extends State<CreatePasswordAlertDialog> {
                   hintText: AppLocale.confirmNewPassword.getString(context),
                   keyboardType: TextInputType.visiblePassword,
                   obsecure: confrimPassObsecure,
+                  filled: true,
+                  filledColor: Colors.white,
                   validator: (value) {
                     if (value!.trim() != passTFController.text.trim()) {
                       return AppLocale.createPassError.getString(context);
@@ -86,7 +90,7 @@ class _CreatePasswordAlertDialogState extends State<CreatePasswordAlertDialog> {
                       confrimPassObsecure
                           ? Icons.visibility
                           : Icons.visibility_off,
-                      color: kBlue,
+                      color: kBlack,
                     ),
                     alignment: Alignment.center,
                   ),
@@ -103,12 +107,14 @@ class _CreatePasswordAlertDialogState extends State<CreatePasswordAlertDialog> {
             if (state is AuthLoading)
               const Center(
                 child: SpinKitFadingCube(
-                  color: kBlue,
+                  color: kOrange,
                 ),
               )
             else
               RoundedButton(
                 label: AppLocale.createPass.getString(context),
+                buttonColor: kBeige,
+                labelColor: kBlack,
                 onPressed: () {
                   FocusManager.instance.primaryFocus?.unfocus();
                   if (formKey.currentState!.validate()) {

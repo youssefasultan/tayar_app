@@ -33,12 +33,12 @@ class ReportProvider extends ChangeNotifier {
         barRods: [
           BarChartRodData(
             toY: _list![index].delivered.toDouble(),
-            color: kOrange,
+            color: kBeige,
             width: 7.w,
           ),
           BarChartRodData(
             toY: _list![index].cancelled.toDouble(),
-            color: kBeige,
+            color: kBlack,
             width: 7.w,
           ),
         ],
