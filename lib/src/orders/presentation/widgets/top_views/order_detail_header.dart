@@ -3,7 +3,6 @@ import 'package:flutter_localization/flutter_localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:tayar_app/core/common/app/localization/app_locale.dart';
-import 'package:tayar_app/core/common/widgets/background_containder.dart';
 import 'package:tayar_app/core/services/call_service.dart';
 import 'package:tayar_app/core/utils/constants/view_constants.dart';
 import 'package:tayar_app/src/orders/data/models/order_model.dart';
@@ -19,151 +18,152 @@ class OrderDetailsHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 3.w),
-      child: BackgroundContainer(
-        width: width,
-        height: height * 0.3,
-        color: kBlack,
-        imgPath: bannerImgPath,
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Row(
-                children: [
-                  Icon(
-                    Ionicons.person_circle,
+      padding: EdgeInsets.symmetric(horizontal: 10.w),
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: 10.w,
+          vertical: 15.h,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.r),
+          gradient: kLinerGradient(order.status),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Row(
+              children: [
+                Icon(
+                  Ionicons.person_circle,
+                  color: Colors.white,
+                  size: 30.w,
+                ),
+                SizedBox(
+                  width: 5.w,
+                ),
+                Text(
+                  order.customerName,
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    size: 30.w,
                   ),
-                  SizedBox(
-                    width: 5.w,
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Icon(
+                  Ionicons.home,
+                  color: Colors.white,
+                  size: 30.w,
+                ),
+                SizedBox(
+                  width: 5.w,
+                ),
+                Expanded(
+                  child: Text(
+                    order.customerAddress,
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      overflow: TextOverflow.clip,
+                    ),
                   ),
-                  Text(
-                    order.customerName,
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Icon(
+                  Ionicons.call,
+                  color: Colors.white,
+                  size: 30.w,
+                ),
+                SizedBox(
+                  width: 5.w,
+                ),
+                InkWell(
+                  onTap: () =>
+                      CallService(context).makePhoneCall(order.customerPhoneNo),
+                  child: Text(
+                    order.customerPhoneNo,
                     style: TextStyle(
                       fontSize: 12.sp,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
                   ),
-                ],
-              ),
-              Row(
-                children: [
-                  Icon(
-                    Ionicons.home,
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  '${AppLocale.paymentType.getString(context)} '
+                  ': ${order.paymentType.locale.getString(context)}',
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    size: 30.w,
                   ),
-                  SizedBox(
-                    width: 5.w,
+                ),
+                Text(
+                  '${AppLocale.onOfItems.getString(context)} '
+                  ': ${order.items.length}',
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
-                  Expanded(
-                    child: Text(
-                      order.customerAddress,
+                ),
+              ],
+            ),
+            Divider(
+              thickness: 2.h,
+              color: Colors.white,
+              indent: 10.w,
+              endIndent: 10.w,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Row(
+                  children: [
+                    Icon(
+                      Ionicons.cash,
+                      color: Colors.white,
+                      size: 30.w,
+                    ),
+                    SizedBox(
+                      width: 5.w,
+                    ),
+                    Text(
+                      '${order.totalAmount} '
+                      '${AppLocale.egp.getString(context)}',
                       style: TextStyle(
-                        fontSize: 12.sp,
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
-                        overflow: TextOverflow.clip,
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Icon(
-                    Ionicons.call,
+                  ],
+                ),
+                Text(
+                  '${AppLocale.orderStatus.getString(context)} '
+                  ': ${order.status.name.getString(context)}',
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    size: 30.w,
                   ),
-                  SizedBox(
-                    width: 5.w,
-                  ),
-                  InkWell(
-                    onTap: () => CallService(context)
-                        .makePhoneCall(order.customerPhoneNo),
-                    child: Text(
-                      order.customerPhoneNo,
-                      style: TextStyle(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    '${AppLocale.paymentType.getString(context)} '
-                    ': ${order.paymentType.locale.getString(context)}',
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Text(
-                    '${AppLocale.onOfItems.getString(context)} '
-                    ': ${order.items.length}',
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-              Divider(
-                thickness: 2.h,
-                color: Colors.white,
-                indent: 10.w,
-                endIndent: 10.w,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Ionicons.cash,
-                        color: Colors.white,
-                        size: 30.w,
-                      ),
-                      SizedBox(
-                        width: 5.w,
-                      ),
-                      Text(
-                        '${order.totalAmount} '
-                        '${AppLocale.egp.getString(context)}',
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Text(
-                    '${AppLocale.orderStatus.getString(context)} '
-                    ': ${order.status.name.getString(context)}',
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.bold,
-                      color: order.status.statusColor,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

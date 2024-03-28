@@ -6,17 +6,21 @@ import 'package:tayar_app/src/orders/domain/entities/order_item_entity.dart';
 class OrderItemModel extends OrderItemEntity {
   const OrderItemModel({
     required super.itemId,
-    required super.itemName,
+    required super.itemNameEn,
     required super.quantity,
-    required super.uom,
+    required super.uomEn,
+    required super.itemNameAr,
+    required super.uomAr,
   });
 
   OrderItemModel.fromMap(DataMap map)
       : this(
           itemId: map['productID'] as int,
-          itemName: map['productName'] as String,
+          itemNameEn: map['productNameEN'] as String,
           quantity: map['quantity'] as int,
-          uom: map['uom'] as String,
+          uomEn: map['uomEN'] as String,
+          itemNameAr: map['productNameAR'] as String,
+          uomAr: map['uomAR'] as String,
         );
 
   factory OrderItemModel.fromJson(String source) =>
@@ -25,29 +29,37 @@ class OrderItemModel extends OrderItemEntity {
   const OrderItemModel.empty()
       : this(
           itemId: 0,
-          itemName: '',
+          itemNameEn: '',
+          itemNameAr: '',
           quantity: 0,
-          uom: '',
+          uomEn: '',
+          uomAr: '',
         );
 
   OrderItemModel copyWith({
     int? itemId,
-    String? itemName,
+    String? itemNameEn,
+    String? itemNameAr,
     int? quantity,
-    String? uom,
+    String? uomEn,
+    String? uomAr,
   }) =>
       OrderItemModel(
         itemId: itemId ?? this.itemId,
-        itemName: itemName ?? this.itemName,
+        itemNameEn: itemNameEn ?? this.itemNameEn,
+        itemNameAr: itemNameAr ?? this.itemNameAr,
         quantity: quantity ?? this.quantity,
-        uom: uom ?? this.uom,
+        uomEn: uomEn ?? this.uomEn,
+        uomAr: uomAr ?? this.uomAr,
       );
 
   DataMap toMap() => {
         'productID': itemId,
-        'productName': itemName,
+        'productNameEN': itemNameEn,
+        'productNameAR': itemNameAr,
         'quantity': quantity,
-        'uom': uom,
+        'uomEN': uomEn,
+        'uomAR': uomAr,
       };
 
   String toJson() => jsonEncode(toMap());

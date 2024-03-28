@@ -4,7 +4,6 @@ import 'package:flutter_localization/flutter_localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:tayar_app/core/common/app/helpers/helpers.dart';
 import 'package:tayar_app/core/common/app/localization/app_locale.dart';
 import 'package:tayar_app/core/common/app/providers/orders_provider.dart';
 import 'package:tayar_app/core/common/app/providers/report_provider.dart';
@@ -53,8 +52,6 @@ class _MainAppState extends State<MainApp> {
       )
       ..onTranslatedLanguage = _onTranslatedLanguage;
 
-    Helpers().initHelpers(context);
-
     super.initState();
   }
 
@@ -94,7 +91,9 @@ class _MainAppState extends State<MainApp> {
             supportedLocales: _localization.supportedLocales,
             localizationsDelegates: _localization.localizationsDelegates,
             debugShowCheckedModeBanner: false,
-            theme: ThemeData(useMaterial3: true),
+            theme: ThemeData(
+              useMaterial3: true,
+            ),
             locale: _localization.currentLocale,
             onGenerateRoute: generateRoute,
           ),

@@ -12,13 +12,16 @@ class ReportProvider extends ChangeNotifier {
     if (_list != null) _list!.clear();
     _list = list;
 
+    _list!.removeWhere(
+        (element) => element.delivered == 0 && element.cancelled == 0);
+
     Future.delayed(Duration.zero, notifyListeners);
   }
 
   List<String> getBottomTitles() {
     return List<String>.generate(
       _list!.length,
-      (index) => DateFormat('MM/dd')
+      (index) => DateFormat('dd.MM')
           .format(DateFormat('yyyy-MM-dd').parse(_list![index].date)),
     );
   }
@@ -28,18 +31,18 @@ class ReportProvider extends ChangeNotifier {
     return List<BarChartGroupData>.generate(
       _list!.length,
       (index) => BarChartGroupData(
-        barsSpace: 4,
+        barsSpace: 2.w,
         x: index,
         barRods: [
           BarChartRodData(
             toY: _list![index].delivered.toDouble(),
             color: kBeige,
-            width: 7.w,
+            width: 5.w,
           ),
           BarChartRodData(
             toY: _list![index].cancelled.toDouble(),
             color: kBlack,
-            width: 7.w,
+            width: 5.w,
           ),
         ],
       ),

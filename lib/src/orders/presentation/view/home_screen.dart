@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
-import 'package:tayar_app/core/common/widgets/background_containder.dart';
 import 'package:tayar_app/core/extentions/context_extention.dart';
 import 'package:tayar_app/core/utils/constants/string_constants.dart';
 import 'package:tayar_app/core/utils/constants/view_constants.dart';
@@ -61,11 +60,8 @@ class _HomeScreenState extends State<HomeScreen> {
             physics: const ClampingScrollPhysics(),
             children: [
               if (state is GettingOrders)
-                BackgroundContainer(
-                  width: width,
+                SizedBox(
                   height: height * 0.3,
-                  color: kBlack,
-                  imgPath: 'assets/images/banner_img.jpg',
                   child: const Center(
                     child: SpinKitFadingCube(
                       color: kOrange,

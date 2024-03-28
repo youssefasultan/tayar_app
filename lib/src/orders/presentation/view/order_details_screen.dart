@@ -17,6 +17,8 @@ class OrderDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localization = FlutterLocalization.instance;
+
     return BlocListener<OrderBloc, OrderState>(
       listener: (_, state) {
         if (state is UpdatingOrderStatus) {
@@ -64,7 +66,9 @@ class OrderDetailsScreen extends StatelessWidget {
                         ),
                       ),
                       title: Text(
-                        item.itemName,
+                        localization.currentLocale!.languageCode == 'en'
+                            ? item.itemNameEn
+                            : item.itemNameAr,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16.sp,
@@ -72,7 +76,7 @@ class OrderDetailsScreen extends StatelessWidget {
                         ),
                       ),
                       trailing: Text(
-                        item.uom,
+                        item.uomEn,
                         style: TextStyle(
                           color: kOrange,
                           fontSize: 16.sp,

@@ -29,8 +29,8 @@ List<Color> getStatusGadient(OrderStatus status) {
 
     case OrderStatus.INPROCESS:
       return [
-        const Color(0xFFCAC531),
-        const Color(0xFFf3f9a7),
+        const Color(0xFFF7971E),
+        const Color(0xFFFFD200),
       ];
 
     case OrderStatus.DELIVERED:
@@ -49,3 +49,4 @@ List<Color> getStatusGadient(OrderStatus status) {
 
 const loginImgPath = 'assets/images/login_bg.jpg';
 const bannerImgPath = 'assets/images/banner_img.jpg';
+const logoImgPath = 'assets/images/app_logo.png';

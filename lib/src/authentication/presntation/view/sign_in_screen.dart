@@ -50,6 +50,10 @@ class _SignInScreenState extends State<SignInScreen> {
             width: width,
             height: height,
             imgPath: 'assets/images/login_bg.jpg',
+            radiusGeometry: BorderRadius.only(
+              topLeft: Radius.circular(20.r),
+              topRight: Radius.circular(20.r),
+            ),
             child: Center(
               child: ListView(
                 shrinkWrap: true,

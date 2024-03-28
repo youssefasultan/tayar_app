@@ -26,6 +26,10 @@ class OrdersPerStatusScreen extends StatelessWidget {
               width: width,
               height: height,
               imgPath: loginImgPath,
+              radiusGeometry: BorderRadius.only(
+                topLeft: Radius.circular(20.r),
+                topRight: Radius.circular(20.r),
+              ),
               child: Center(
                 child: Text(
                   AppLocale.noOrdersForStatus.getString(context),

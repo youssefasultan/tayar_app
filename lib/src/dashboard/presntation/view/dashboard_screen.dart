@@ -37,13 +37,15 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
             showSelectedLabels: false,
             showUnselectedLabels: false,
             backgroundColor: Colors.white,
-            elevation: 8,
+            elevation: 0,
             onTap: controller.changeIndex,
             items: [
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home,
-                  color: controller.currentIndex == 0 ? kBeige : kBlack,
+                  color: controller.currentIndex == 0
+                      ? kBeige
+                      : kBlack.withOpacity(0.7),
                 ),
                 label: 'Orders',
                 backgroundColor: Colors.white,
@@ -51,7 +53,9 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.person,
-                  color: controller.currentIndex == 1 ? kBeige : kBlack,
+                  color: controller.currentIndex == 1
+                      ? kBeige
+                      : kBlack.withOpacity(0.7),
                 ),
                 label: 'profile',
                 backgroundColor: Colors.white,

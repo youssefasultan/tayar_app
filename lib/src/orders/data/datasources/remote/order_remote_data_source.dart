@@ -29,6 +29,10 @@ class OrderRemoteDataSourceImpl implements OrderRemoteDataSource {
   OrderRemoteDataSourceImpl(this._client);
 
   final http.Client _client;
+
+  // A function that retrieves a list of orders for a specific organization and driver.
+  // Requires the organization ID and driver ID as parameters.
+  // Returns a Future containing a list of OrderModel objects.
   @override
   Future<List<OrderModel>> getOrder({
     required String orgId,
@@ -71,6 +75,14 @@ class OrderRemoteDataSourceImpl implements OrderRemoteDataSource {
   }
 
   @override
+  // Updates the order status with the provided information.
+  // Parameters:
+  //   - orgId: the organization ID
+  //   - orderId: the order ID
+  //   - status: the status to update to
+  //   - cancelReason: the cancel reason
+  //   - driverId: the driver ID
+  //   - note: a note related to the status update
   Future<void> updateOrderStatus({
     required String orgId,
     required String orderId,

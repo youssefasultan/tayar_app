@@ -29,6 +29,7 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         PopupMenuButton(
           offset: const Offset(0, 50),
+          iconColor: kBlack.withOpacity(0.7),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.r)),
           itemBuilder: (_) => [

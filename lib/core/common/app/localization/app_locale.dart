@@ -140,7 +140,7 @@ mixin AppLocale {
     cash: 'نقدي',
     card: 'كارت',
     total: 'أجمالي',
-    egp: 'جنيه مصري',
+    egp: 'ج.م',
     onOfItems: 'عدد المنتجات',
     orderStatus: 'حاله الطلب',
     cannotCall: 'لا يمكن أستخدام الأتصال',

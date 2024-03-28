@@ -6,6 +6,7 @@ import 'package:tayar_app/core/common/widgets/page_under_construction.dart';
 import 'package:tayar_app/core/extentions/context_extention.dart';
 import 'package:tayar_app/core/services/injection_container.dart';
 import 'package:tayar_app/core/utils/constants/string_constants.dart';
+import 'package:tayar_app/core/utils/constants/view_constants.dart';
 import 'package:tayar_app/src/authentication/data/models/user_model.dart';
 import 'package:tayar_app/src/authentication/presntation/bloc/auth_bloc.dart';
 import 'package:tayar_app/src/authentication/presntation/view/sign_in_screen.dart';
@@ -22,11 +23,11 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
           if (prefs.getBool(logStatusKey) ?? true) {
             return AnimatedSplashScreen(
-              splashTransition: SplashTransition.fadeTransition,
+              splashTransition: SplashTransition.slideTransition,
               duration: 3000,
-              splash: 'assets/images/app_logo.png',
+              splash: logoImgPath,
               splashIconSize: 200,
-              backgroundColor: const Color(0xff191718),
+              backgroundColor: kBlack,
               nextScreen: BlocProvider(
                 create: (context) => sl<AuthBloc>(),
                 child: const SignInScreen(),
@@ -38,11 +39,11 @@ Route<dynamic> generateRoute(RouteSettings settings) {
             context.userProvider.initUser(user);
 
             return AnimatedSplashScreen(
-              splashTransition: SplashTransition.fadeTransition,
+              splashTransition: SplashTransition.slideTransition,
               duration: 3000,
-              splash: 'assets/images/app_logo.png',
+              splash: logoImgPath,
               splashIconSize: 200,
-              backgroundColor: const Color(0xff191718),
+              backgroundColor: kBlack,
               nextScreen: BlocProvider(
                 create: (context) => sl<AuthBloc>(),
                 child: const DashBoardScreen(),
@@ -53,9 +54,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
           return AnimatedSplashScreen(
             splashTransition: SplashTransition.fadeTransition,
             duration: 3000,
-            splash: 'assets/images/app_logo.png',
+            splash: logoImgPath,
             splashIconSize: 200,
-            backgroundColor: const Color(0xff191718),
+            backgroundColor: kBlack,
             nextScreen: BlocProvider(
               create: (context) => sl<AuthBloc>(),
               child: const SignInScreen(),

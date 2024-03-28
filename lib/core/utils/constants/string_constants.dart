@@ -7,7 +7,7 @@ const kGetOrdersEndPoint = '/ECS_RPOS_T001/DriverAllOrders';
 const kUpdateOrderStatus = '/ECS_RPOS_T001/Api/UpdateOrderStatus';
 const kGetCancelReasonsEndPoint =
     '/ECS_RPOS_T001/Api/DynamicQuery/Cancel_Reasons';
-const kGetWeeklyReportEndPoint = '/ECS_RPOS_T001/Api/DriverWeeklyOrders';
+const kGetWeeklyReportEndPoint = '/ECS_RPOS_T001/Api/DiverOrdersReports';
 
 Map<String, String> buildGetEndPointParams(
   String orgId,

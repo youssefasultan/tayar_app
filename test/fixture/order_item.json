@@ -1,6 +1,8 @@
 {
     "productID": 0,
-    "productName": "",
+    "productNameEN": "",
+    "productNameAR": "",
     "quantity": 0,
-    "uom": ""
+    "uomEN": "",
+    "uomAR": ""
 }

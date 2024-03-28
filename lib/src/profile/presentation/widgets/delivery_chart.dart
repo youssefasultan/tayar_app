@@ -129,7 +129,7 @@ class _DeliveryChartState extends State<DeliveryChart> {
                                   AppLocale.reportError.getString(context),
                                   style: TextStyle(
                                     fontSize: 20.sp,
-                                    color: kBlue,
+                                    color: kBlack.withOpacity(0.7),
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -229,14 +229,12 @@ class _DeliveryChartState extends State<DeliveryChart> {
   }
 
   Widget bottomTitles(double value, TitleMeta meta, List<String> titles) {
-    // final titles = <String>['Mn', 'Te', 'Wd', 'Tu', 'Fr', 'St', 'Su'];
-
     final Widget text = Text(
-      titles[value.toInt()],
+      titles[value.toInt()].replaceAll('.', '\n'),
       style: TextStyle(
         color: kBlack,
-        fontWeight: FontWeight.bold,
-        fontSize: 10.sp,
+        fontWeight: FontWeight.normal,
+        fontSize: 7.sp,
       ),
     );
 

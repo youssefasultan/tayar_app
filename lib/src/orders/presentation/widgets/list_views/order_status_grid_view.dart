@@ -22,8 +22,8 @@ class OrderStatusGridView extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 200.h,
-        crossAxisSpacing: 20.w,
-        mainAxisSpacing: 20.h,
+        crossAxisSpacing: 5.w,
+        mainAxisSpacing: 5.h,
       ),
       itemCount: mainStatus.length,
       itemBuilder: (_, index) {
@@ -89,12 +89,10 @@ class OrderStatusGridView extends StatelessWidget {
                 ),
               ),
               child: Center(
-                child: Image.asset(status.image),
-                //  Icon(
-                //   status.icon,
-                //   size: 50.h,
-                //   color: kBlack.withOpacity(0.8),
-                // ),
+                child: Image.asset(
+                  status.image,
+                  colorBlendMode: BlendMode.darken,
+                ),
               ),
             ),
           ),
