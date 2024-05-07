@@ -15,7 +15,6 @@ class OrdersProvider extends ChangeNotifier {
   List<OrderModel>? get orderList => _orderList;
   List<OrderModel>? get inProcessOrder => _inProcessOrderList;
 
-
   void init(List<OrderModel>? orderList) {
     if (_orderList != null) _orderList!.clear();
     _orderList = orderList;

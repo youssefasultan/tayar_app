@@ -61,10 +61,10 @@ class CoreUtils {
       barrierDismissible: false,
       builder: (context) => StatefulBuilder(
         builder: (context, setState) => AlertDialog(
-          backgroundColor: kBlack.withOpacity(0.4),
+          backgroundColor: kBlack.withOpacity(0.7),
           elevation: 3,
           icon: const SpinKitPouringHourGlass(
-            color: kBlack,
+            color: Colors.white,
           ),
           content: Text(
             AppLocale.loading.getString(context),
@@ -72,7 +72,7 @@ class CoreUtils {
             style: TextStyle(
               fontSize: 16.sp,
               fontWeight: FontWeight.w600,
-              color: kBlack,
+              color: Colors.white,
             ),
           ),
         ),
@@ -86,113 +86,117 @@ class CoreUtils {
   ) {
     final tfController = TextEditingController();
 
-    var validate = false;
-    return showAdaptiveDialog<DataMap?>(
+    return showDialog<DataMap?>(
       context: context,
-      builder: (_) => StatefulBuilder(
-        builder: (context, setState) => FutureBuilder(
-          future: context.orderProvider.getCancelReasons(),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (snapshot.hasError) {
-              return const Center(
-                child: Text('Error'),
-              );
-            }
+      builder: (_) => FutureBuilder(
+        future: context.orderProvider.getCancelReasons(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: SpinKitFadingCube(
+                color: kOrange,
+              ),
+            );
+          } else if (snapshot.hasError) {
+            return const Center(
+              child: Text('Error'),
+            );
+          }
 
-            var selectedReason = snapshot.data![0];
-            return AlertDialog(
-              title: Text(
-                AppLocale.reason.getString(context),
-                textAlign: TextAlign.center,
-              ),
-              titleTextStyle: TextStyle(
-                fontSize: 16.sp,
-                fontWeight: FontWeight.w600,
-                color: kBlack,
-              ),
-              content: SingleChildScrollView(
-                physics: const ClampingScrollPhysics(),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    ...List.generate(snapshot.data!.length, (index) {
-                      final reason = snapshot.data![index];
-                      return RadioListTile(
-                        title: Text(
-                          reason['reason'] as String,
-                        ),
-                        activeColor: kBlack,
-                        value: reason,
-                        groupValue: selectedReason,
-                        onChanged: (value) {
-                          setState(() => selectedReason = value!);
-                        },
-                      );
-                    }),
-                    AnimatedContainer(
-                      duration: const Duration(milliseconds: 500),
-                      curve: Curves.fastOutSlowIn,
-                      width: width,
-                      height: selectedReason['id'] == 0 ? 60.h : 0,
-                      child: TextField(
-                        controller: tfController,
-                        decoration: InputDecoration(
-                          hintText: AppLocale.enterReason.getString(context),
-                          border: const UnderlineInputBorder(),
-                          errorText: validate
-                              ? AppLocale.enterReason.getString(context)
-                              : null,
-                          errorBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.red,
-                              width: 2.w,
-                            ),
+          var selectedReason = snapshot.data![0];
+          var validate = false;
+          return StatefulBuilder(
+            builder: (context, setState) {
+              return AlertDialog(
+                title: Text(
+                  AppLocale.reason.getString(context),
+                  textAlign: TextAlign.center,
+                ),
+                titleTextStyle: TextStyle(
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w600,
+                  color: kBlack,
+                ),
+                content: SingleChildScrollView(
+                  physics: const ClampingScrollPhysics(),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ...List.generate(snapshot.data!.length, (index) {
+                        final reason = snapshot.data![index];
+                        return RadioListTile(
+                          title: Text(
+                            reason['reason'] as String,
                           ),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                              color: kBlue,
-                              width: 3.w,
+                          activeColor: kBlack,
+                          value: reason,
+                          groupValue: selectedReason,
+                          onChanged: (value) {
+                            setState(() => selectedReason = value!);
+                          },
+                        );
+                      }),
+                      AnimatedContainer(
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.fastOutSlowIn,
+                        width: width,
+                        height: selectedReason['id'] == 0 ? 60.h : 0,
+                        child: TextField(
+                          controller: tfController,
+                          decoration: InputDecoration(
+                            hintText: AppLocale.enterReason.getString(context),
+                            border: const UnderlineInputBorder(),
+                            errorText: validate
+                                ? AppLocale.enterReason.getString(context)
+                                : null,
+                            errorBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.red,
+                                width: 2.w,
+                              ),
                             ),
-                          ),
-                          focusedErrorBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.red,
-                              width: 2.w,
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: kBlue,
+                                width: 3.w,
+                              ),
+                            ),
+                            focusedErrorBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.red,
+                                width: 2.w,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              actions: [
-                RoundedButton(
-                  label: AppLocale.submit.getString(context),
-                  labelColor: Colors.white,
-                  buttonColor: kBlack,
-                  onPressed: () {
-                    if (selectedReason['id'] == 0 &&
-                        tfController.text.trim().isEmpty) {
-                      setState(() => validate = true);
-                    } else {
-                      tfController.dispose();
-                      Navigator.of(context).pop({
-                        'reasonId': selectedReason['id'] as int,
-                        'text': tfController.text.trim(),
-                      });
-                    }
-                  },
-                ),
-              ],
-              actionsAlignment: MainAxisAlignment.center,
-            );
-          },
-        ),
+                actions: [
+                  RoundedButton(
+                    label: AppLocale.submit.getString(context),
+                    labelColor: Colors.white,
+                    buttonColor: kBlack,
+                    onPressed: () {
+                      if (selectedReason['id'] == 0 &&
+                          tfController.text.trim().isEmpty) {
+                        setState(() => validate = true);
+                      } else {
+                        tfController.dispose();
+                        Navigator.of(context).pop({
+                          'reasonId': selectedReason['id'] as int,
+                          'text': tfController.text.trim(),
+                        });
+                      }
+                    },
+                  ),
+                ],
+                actionsAlignment: MainAxisAlignment.center,
+              );
+            },
+          );
+        },
       ),
     );
   }

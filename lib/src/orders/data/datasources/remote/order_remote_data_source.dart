@@ -30,6 +30,7 @@ class OrderRemoteDataSourceImpl implements OrderRemoteDataSource {
 
   final http.Client _client;
 
+  // ignore: lines_longer_than_80_chars
   // A function that retrieves a list of orders for a specific organization and driver.
   // Requires the organization ID and driver ID as parameters.
   // Returns a Future containing a list of OrderModel objects.

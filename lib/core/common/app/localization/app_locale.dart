@@ -59,6 +59,8 @@ mixin AppLocale {
   static const String loading = 'loading';
   static const String successfully = 'successfully';
 
+  static const String note = 'note';
+
   static const Map<String, dynamic> EN = {
     appName: 'Tayar',
     appSlogan: 'Fast and Easy. Reach your Destination in a Minute.',
@@ -105,6 +107,7 @@ mixin AppLocale {
     report: 'Report',
     reportError: 'No Data found',
     choosetDate: 'Choose Dates',
+    note: 'Note',
   };
 
   static const Map<String, dynamic> AR = {
@@ -153,5 +156,6 @@ mixin AppLocale {
     report: 'أحصائيات',
     reportError: 'لا يوجد بيانات',
     choosetDate: 'أختار التاريخ',
+    note: 'ملاحظات',
   };
 }

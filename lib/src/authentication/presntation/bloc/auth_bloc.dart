@@ -66,7 +66,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         (failure) => emit(AuthError(message: failure.errorMessage)),
         (user) async {
           if (user.isInitial) {
-            
             emit(SignedInWithInit(user));
           } else {
             await _saveUser(user)

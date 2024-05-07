@@ -35,7 +35,7 @@ class UserInfoView extends StatelessWidget {
                   radius: 50.r,
                   child: Icon(
                     Ionicons.person,
-                    color: kBlack,
+                    color: kBlack.withOpacity(0.7),
                     size: 50.h,
                   ),
                 ),
@@ -45,14 +45,14 @@ class UserInfoView extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 18.sp,
                     fontWeight: FontWeight.w600,
-                    color: kBlack,
+                    color: kBlack.withOpacity(0.7),
                   ),
                 ),
               ],
             ),
           ),
           Divider(
-            color: kBlack,
+            color: kBlack.withOpacity(0.7),
             thickness: 2.h,
             endIndent: 20.w,
             indent: 20.w,

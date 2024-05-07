@@ -163,6 +163,23 @@ class OrderDetailsHeader extends StatelessWidget {
                 ),
               ],
             ),
+            if (order.note.isNotEmpty) ...{
+              Divider(
+                thickness: 2.h,
+                color: Colors.white,
+                indent: 10.w,
+                endIndent: 10.w,
+              ),
+              Text(
+                '${AppLocale.note.getString(context)} '
+                ': ${order.note}',
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            },
           ],
         ),
       ),

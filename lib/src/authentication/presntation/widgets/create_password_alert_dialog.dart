@@ -106,7 +106,7 @@ class _CreatePasswordAlertDialogState extends State<CreatePasswordAlertDialog> {
           actions: [
             if (state is AuthLoading)
               const Center(
-                child: SpinKitFadingCube(
+                child: SpinKitThreeBounce(
                   color: kOrange,
                 ),
               )
@@ -139,6 +139,10 @@ class _CreatePasswordAlertDialogState extends State<CreatePasswordAlertDialog> {
           Navigator.pushReplacementNamed(
             context,
             DashBoardScreen.routeName,
+          );
+          CoreUtils.showSuccessSnackBar(
+            context,
+            AppLocale.successfully.getString(context),
           );
         }
       },

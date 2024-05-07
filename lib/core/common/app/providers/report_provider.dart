@@ -13,7 +13,8 @@ class ReportProvider extends ChangeNotifier {
     _list = list;
 
     _list!.removeWhere(
-        (element) => element.delivered == 0 && element.cancelled == 0);
+      (element) => element.delivered == 0 && element.cancelled == 0,
+    );
 
     Future.delayed(Duration.zero, notifyListeners);
   }
