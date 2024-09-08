@@ -76,8 +76,8 @@ class _LangDropDownState extends State<LangDropDown> {
           offset: const Offset(0, 55),
           scrollbarTheme: ScrollbarThemeData(
             radius: Radius.circular(40.r),
-            thickness: MaterialStateProperty.all(6.w),
-            thumbVisibility: MaterialStateProperty.all(true),
+            thickness: WidgetStateProperty.all(6.w),
+            thumbVisibility: WidgetStateProperty.all(true),
           ),
         ),
       ),

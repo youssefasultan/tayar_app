@@ -13,10 +13,9 @@ import 'package:tayar_app/src/authentication/presntation/view/sign_in_screen.dar
 import 'package:tayar_app/src/dashboard/presntation/view/dashboard_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
+  final prefs = sl<SharedPreferences>();
   switch (settings.name) {
     case '/':
-      final prefs = sl<SharedPreferences>();
-
       return _pageBuilder(
         (context) {
           final loggedUser = prefs.getString(loggedUserKey);
